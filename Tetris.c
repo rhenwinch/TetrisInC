@@ -774,6 +774,7 @@ void showInstructions(char *username) {
 
 void showLeaderboards() {
 	generateLeaderboards();
+	
 	FILE *filePointer;
     char line[1024];
     int justifiedX, pressedKey;
@@ -785,6 +786,8 @@ void showLeaderboards() {
 	printInCenter(" =================================================================== \n");
 	printf("    [ RANK ]\t\t[ NAME ]\t[ SCORE ] \n");
 	printInCenter(" =================================================================== \n\n");
+	
+	filePointer = fopen(TEMP_LEADERBOARDS_FILE, "r");
 	
 	// Print each lines
 	while (fgets(line, 1024, filePointer)) {
